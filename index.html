@@ -18,7 +18,6 @@
             padding: 20px;
         }
         .dashboard, .coding-environment {
-            display: none; /* Ẩn Dashboard ban đầu */
             background-color: white;
             padding: 20px;
             border-radius: 8px;
@@ -26,12 +25,11 @@
             margin-bottom: 20px;
         }
         .login-screen {
-            background-color: white;
-            padding: 20px;
+            padding: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 100px;
-        }
+            margin-bottom: 20px;
+            }
         h2, h3 {
             text-align: center;
             color: #333;
@@ -178,59 +176,58 @@
         }
         .status-passed { color: green; }
         .status-failed { color: red; }
-        .status-error { color: orange; }r: white;
-        }
+        .status-error { color: orange; }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Login Screen -->
-        <div class="login-screen" id="loginScreen">
+        <div class="login-screen">
             <h2>Login</h2>
             <label for="username">Username/Email</label>
             <input type="text" id="username" name="username" placeholder="Enter your email or username">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter your password">
-            <button class="login-btn" onclick="login()">Login</button>
-            <p>
-                <a href="https://tl-1279.github.io/Created-login-form/" target="_blank">Forgot Password? Register here</a>
-            </p>
+            <button class="login-btn">Login</button>
+            <p><a href="#">Forgot Password?</a></p>
         </div>
 
         <!-- Dashboard Screen -->
-        <div class="dashboard" id="dashboardScreen">
-            <h2>Welcome to the Student Dashboard</h2>
+        <div class="dashboard">
+            
+        <h2>Welcome to the Student Dashboard</h2>
 
-            <!-- Exercise group for C -->
-            <div class="exercise-group">
-                <h3>C Programming Exercises</h3>
-                <ul class="exercise-list">
-                    <li>
-                        <strong>Exercise 1:</strong> Basic I/O Operations
-                        <div class="exercise-details">Difficulty: Easy | Time Limit: 30 minutes</div>
-                    </li>
-                    <li>
-                        <strong>Exercise 2:</strong> Arrays and Pointers
-                        <div class="exercise-details">Difficulty: Medium | Time Limit: 45 minutes</div>
-                    </li>
-                </ul>
-            </div>
+        <!-- Exercise group for C -->
+        <div class="exercise-group">
+            <h3>C Programming Exercises</h3>
+            <ul class="exercise-list">
+                <li>
+                    <strong>Exercise 1:</strong> Basic I/O Operations
+                    <div class="exercise-details">Difficulty: Easy | Time Limit: 30 minutes</div>
+                </li>
+                <li>
+                    <strong>Exercise 2:</strong> Arrays and Pointers
+                    <div class="exercise-details">Difficulty: Medium | Time Limit: 45 minutes</div>
+                </li>
+            </ul>
+        </div>
 
-            <!-- Exercise group for Python -->
-            <div class="exercise-group">
-                <h3>Python Programming Exercises</h3>
-                <ul class="exercise-list">
-                    <li>
-                        <strong>Exercise 1:</strong> Introduction to Lists
-                        <div class="exercise-details">Difficulty: Easy | Time Limit: 20 minutes</div>
-                    </li>
-                    <li>
-                        <strong>Exercise 2:</strong> Dictionary Operations
-                        <div class="exercise-details">Difficulty: Medium | Time Limit: 35 minutes</div>
-                    </li>
-                </ul>
-            </div>
-              <!-- Exercise group for Java -->
+        <!-- Exercise group for Python -->
+        <div class="exercise-group">
+            <h3>Python Programming Exercises</h3>
+            <ul class="exercise-list">
+                <li>
+                    <strong>Exercise 1:</strong> Introduction to Lists
+                    <div class="exercise-details">Difficulty: Easy | Time Limit: 20 minutes</div>
+                </li>
+                <li>
+                    <strong>Exercise 2:</strong> Dictionary Operations
+                    <div class="exercise-details">Difficulty: Medium | Time Limit: 35 minutes</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Exercise group for Java -->
         <div class="exercise-group">
             <h3>Java Programming Exercises</h3>
             <ul class="exercise-list">
@@ -246,10 +243,8 @@
         </div>
     </div>
 
-        </div>
-    </div>
-    <!-- Coding Environment -->
-        <div class="coding-environment" id="environmentScreen">
+        <!-- Coding Environment -->
+        <div class="coding-environment">
         <h2>Exercise: Data Structure Operations</h2>
         <div class="code-editor" contenteditable="true">
             <pre>// Write your code here...</pre>
@@ -317,7 +312,7 @@
                 <div>Syntax Error on line 10: Missing semicolon.</div>
                 <div>Runtime Error on line 15: Array out of bounds.</div>
             </div>
-        
+        </div>
 
         <!-- Feedback and Rankings -->
         <div class="feedback-section">
@@ -335,27 +330,10 @@
             <button class="return-btn">Return to Dashboard</button>
             <button class="return-btn">Try Again</button>
         </div>
+    </div>
 
     <script>
-        // Hàm xử lý khi nhấn nút Login
-        function login() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            // Giả lập kiểm tra tài khoản
-            if (username === "student" && password === "12345") {
-                // Ẩn màn hình login
-                document.getElementById("loginScreen").style.display = "none";
-
-                // Hiển thị màn hình dashboard
-                document.getElementById("dashboardScreen").style.display = "block";
-                                document.getElementById("environmentScreen").style.display = "block";
-
-                
-            } else {
-                alert("Invalid username or password. Please try again.");
-            }
-        }
+        // Placeholder for handling code execution and error display
         function runCode() {
             alert('Running the code in an isolated environment...');
         }
