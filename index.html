@@ -2,102 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Coding Platform</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('https://png.pngtree.com/background/20221017/original/pngtree-green-floral-background-with-leaves-picture-image_1920970.jpg');
             margin: 0;
             padding: 0;
+            background-image: url('https://png.pngtree.com/background/20221017/original/pngtree-green-floral-background-with-leaves-picture-image_1920970.jpg');
+            background-size: cover;
+            color: #333;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .dashboard, .coding-environment {
+            max-width: 800px;
+            margin: 50px auto;
             background-color: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(239, 239, 239, 0.1);
         }
-        .login-screen {
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            }
-        h2, h3 {
+        h1,h2, h3 {
             text-align: center;
-            color: #333;
+            font-size: 0px auto;
         }
         input[type="text"], input[type="password"], textarea {
             width: 100%;
             padding: 10px;
-            margin: 8px 0;
+            margin: 10px 0;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 5px;
         }
         button {
-            padding: 12px 24px;
-            margin: 5px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .login-btn { 
-        background-color: #007bff; 
-        color: white;
-        }
-        .exercise-btn, .submit-btn, .run-btn { 
-        background-color: #28a745; 
-        color: white;
-        }
-        .clear-btn, .hint-btn {
-        background-color: #ffc107; 
-        color: black;
-        }
-        .return-btn {
-        background-color: #17a2b8; 
-        color: white; 
-        }
-        .test-case-section, .error-section, .feedback-section, .ranking-section {
-            background-color: #fafafa;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-        .mobile-friendly {
-            width: 100%;
-            text-align: center;
-        }
-        .dashboard-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .dashboard-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .exercise-group {
-            margin-bottom: 30px;
-        }
-        .exercise-group h3 {
-            background-color: #2E8B57;
-            color: white;
             padding: 10px;
-            border-radius: 4px;
-            margin: 0;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            background-color:#145b24;
+        }
+        .run-btn {
+            background-color: #28a745; /* Green */
+        }
+        .clear-btn {
+            background-color: #dc3545; /* Red */
+        }
+        .submit-btn {
+            background-color: #007bff; /* Blue */
+        }
+        .hint-btn {
+            background-color: #ffc107; /* Yellow */
+        }
+        .save-btn {
+            background-color: #6c757d; /* Grey */
+        }
+        button:hover {
+            opacity: 0.9; /* Slight transparency on hover */
+            background-color:#145b24;
+        }
+        .hidden {
+            display: none;
         }
         .exercise-list {
-            list-style: none;
+            list-style-type: none;
             padding: 0;
-            margin: 10px 0 0 0;
         }
         .exercise-list li {
             background-color: MintCream	;
@@ -111,175 +80,65 @@
         .exercise-list li:hover {
             background-color: #B0E0E6;
         }
-        .exercise-details {
-            font-size: 14px;
-            color: #555;
-        }
-         .coding-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .coding-container h2, .coding-container h3 {
-            text-align: center;
-        }
-        .code-editor {
-            background-color: #282c34;
-            color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            min-height: 300px;
-            margin-bottom: 20px;
-            font-family: monospace;
-        }
-        .code-editor pre {
-            margin: 0;
-        }
-        .button-group, .navigation-buttons {
-            text-align: center;
-            margin: 15px 0;
-        }
-        .button-group button, .navigation-buttons button {
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
+        .exercise-item {
+            background-color: #f9f9f9;
+            border: 1px solid #0e5b20;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
             cursor: pointer;
         }
-        .run-btn { background-color: #28a745; color: white; }
-        .clear-btn { background-color: #dc3545; color: white; }
-        .submit-btn { background-color: #007bff; color: white; }
-        .hint-btn { background-color: #ffc107; color: black; }
-        .save-progress-btn { background-color: #17a2b8; color: white; }
-        .test-case-section, .feedback-section, .ranking-section {
-            background-color: white;
-            padding: 15px;
+        .exercise-item:hover {
+            background-color: #f1f1f1;
+        }
+        .code-editor {
+            height: 200px;
             border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            font-family: monospace;
+            background-color: #f0f0f0;
+        }
+        .score-section, .ranking-section, .feedback-section {
+            margin: 20px 0;
+            background-color: #ddd;
+            padding: 15px;
+            border: 1px solid #f0f0f0;
             border-radius: 8px;
             margin-bottom: 20px;
         }
-        
-        .test-case-item, .feedback-section, .ranking-section {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            background-color: #f0f0f0;
-        }
-        .performance-metrics {
-            font-size: 14px;
-            margin-top: 10px;
-            color: #555;
-        }
-        .result-item {
-            margin-bottom: 10px;
-        }
-        .status-passed { color: green; }
-        .status-failed { color: red; }
-        .status-error { color: orange; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Login Screen -->
-        <div class="login-screen">
-            <h2>Login</h2>
-            <label for="username">Username/Email</label>
-            <input type="text" id="username" name="username" placeholder="Enter your email or username">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password">
-            <button class="login-btn">Login</button>
-            <p><a href="#">Forgot Password?</a></p>
-        </div>
-
-        <!-- Dashboard Screen -->
-        <div class="dashboard">
-            
-        <h2>Welcome to the Student Dashboard</h2>
-
-        <!-- Exercise group for C -->
-        <div class="exercise-group">
-            <h3>C Programming Exercises</h3>
-            <ul class="exercise-list">
-                <li>
-                    <strong>Exercise 1:</strong> Basic I/O Operations
-                    <div class="exercise-details">Difficulty: Easy | Time Limit: 30 minutes</div>
-                </li>
-                <li>
-                    <strong>Exercise 2:</strong> Arrays and Pointers
-                    <div class="exercise-details">Difficulty: Medium | Time Limit: 45 minutes</div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Exercise group for Python -->
-        <div class="exercise-group">
-            <h3>Python Programming Exercises</h3>
-            <ul class="exercise-list">
-                <li>
-                    <strong>Exercise 1:</strong> Introduction to Lists
-                    <div class="exercise-details">Difficulty: Easy | Time Limit: 20 minutes</div>
-                </li>
-                <li>
-                    <strong>Exercise 2:</strong> Dictionary Operations
-                    <div class="exercise-details">Difficulty: Medium | Time Limit: 35 minutes</div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Exercise group for Java -->
-        <div class="exercise-group">
-            <h3>Java Programming Exercises</h3>
-            <ul class="exercise-list">
-                <li>
-                    <strong>Exercise 1:</strong> Basic Object-Oriented Concepts
-                    <div class="exercise-details">Difficulty: Easy | Time Limit: 25 minutes</div>
-                </li>
-                <li>
-                    <strong>Exercise 2:</strong> Inheritance and Polymorphism
-                    <div class="exercise-details">Difficulty: Hard | Time Limit: 60 minutes</div>
-                </li>
-            </ul>
-        </div>
+    <div class="container" id="loginScreen">
+        <h1>Login</h1>
+        <label for="username">Username/Email</label>
+        <input type="text" id="username" name="username" placeholder="Enter your email or username">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <button onclick="login()">Login</button>
+        <p><a href="#">Forgot Password?</a></p>
     </div>
 
-        <!-- Coding Environment -->
-        <div class="coding-environment">
-        <h2>Exercise: Data Structure Operations</h2>
-        <div class="code-editor" contenteditable="true">
-            <pre>// Write your code here...</pre>
-        </div>
+    <div class="container hidden" id="dashboardScreen">
+        <h2>Dashboard</h2>
+        <h3>Available Exercises</h3>
+        <ul class="exercise-list" id="exerciseList"></ul>
+    </div>
 
-        <div class="button-group">
-            <button class="run-btn" onclick="runCode()">Run Code</button>
-            <button class="clear-btn" onclick="clearCode()">Clear Code</button>
-            <button class="submit-btn" onclick="submitCode()">Submit</button>
-            <button class="hint-btn" onclick="showHint()">Hint</button>
-            <button class="save-progress-btn" onclick="saveProgress()">Save Progress</button>
+    <div class="container hidden" id="codingEnvironment">
+        <h2 id="exerciseTitle"></h2>
+        <p id="exerciseDescription"></p>
+        <div class="code-editor" contenteditable="true" id="codeEditor">
+            // Write your code here...
         </div>
-
-        <!-- Test Cases Section -->
-        <div class="test-case-section">
-            <h3>Test Cases</h3>
-            <div class="test-case-item">
-                <strong>Test Case 1:</strong><br>
-                Input: 4<br>
-                Expected Output: 16<br>
-                Actual Output: 16<br>
-                Status: <span class="status-passed">Passed</span>
-            </div>
-            <div class="test-case-item">
-                <strong>Test Case 2:</strong><br>
-                Input: 5<br>
-                Expected Output: 25<br>
-                Actual Output: 20<br>
-                Status: <span class="status-failed">Failed</span>
-            </div>
-            <div class="performance-metrics">
-                Time Taken: 0.45s | Memory Used: 8MB
-            </div>
-        </div>
-
+        <button class="run-btn" onclick="runCode()">Run Code</button>
+        <button class="clear-btn" onclick="clearCode()">Clear Code</button>
+        <button class="submit-btn" onclick="submitCode()">Submit Code</button>
+        <button class="hint-btn" onclick="showHint()">Hint</button>
+        <button class="save-btn" onclick="saveProgress()">Save Progress</button>
+        <div id="output"></div>
+        
         <!-- Score Section -->
         <div class="score-section">
             <h3>Your Score</h3>
@@ -305,43 +164,98 @@
             <button onclick="tryAgain()">Try Again</button>
             <button onclick="returnToDashboard()">Return to Dashboard</button>
         </div>
-    </div>
 
-            <div class="error-section">
-                <h3>Execution Errors</h3>
-                <div>Syntax Error on line 10: Missing semicolon.</div>
-                <div>Runtime Error on line 15: Array out of bounds.</div>
-            </div>
-        </div>
-
-        <!-- Feedback and Rankings -->
-        <div class="feedback-section">
-            <h3>Feedback or Ask for Help</h3>
-            <textarea placeholder="Enter your feedback here..."></textarea>
-            <button class="submit-btn">Submit Feedback</button>
-        </div>
-        <div class="ranking-section">
-            <h3>Student Rankings</h3>
-            <p>Your current rank: #7</p>
-        </div>
-
-        <!-- Navigation -->
-        <div class="mobile-friendly">
-            <button class="return-btn">Return to Dashboard</button>
-            <button class="return-btn">Try Again</button>
+        <div class="error-section">
+            <h3>Execution Errors</h3>
+            <div>Syntax Error on line 10: Missing semicolon.</div>
+            <div>Runtime Error on line 15: Array out of bounds.</div>
         </div>
     </div>
 
     <script>
-        // Placeholder for handling code execution and error display
+        const exercises = [
+            {
+                title: "C Programming: Basic I/O",
+                description: "Learn to use printf and scanf.",
+                difficulty: "Easy",
+                timeLimit: "30 minutes",
+                points: 10,
+            },
+            {
+                title: "Python: List Operations",
+                description: "Practice using lists and their methods.",
+                difficulty: "Medium",
+                timeLimit: "45 minutes",
+                points: 15,
+            },
+            {
+                title: "Java: OOP Concepts",
+                description: "Understand classes and objects in Java.",
+                difficulty: "Hard",
+                timeLimit: "60 minutes",
+                points: 20,
+            },
+        ];
+
+        function login() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('dashboardScreen').classList.remove('hidden');
+            loadExercises();
+        }
+
+        function loadExercises() {
+            const exerciseList = document.getElementById('exerciseList');
+            exercises.forEach((exercise, index) => {
+                const li = document.createElement('li');
+                li.className = 'exercise-item';
+                li.innerText = `${exercise.title} - ${exercise.difficulty}`;
+                li.onclick = () => selectExercise(index);
+                exerciseList.appendChild(li);
+            });
+        }
+
+        function selectExercise(index) {
+            document.getElementById('dashboardScreen').classList.add('hidden');
+            document.getElementById('codingEnvironment').classList.remove('hidden');
+            const exercise = exercises[index];
+            document.getElementById('exerciseTitle').innerText = exercise.title;
+            document.getElementById('exerciseDescription').innerText = exercise.description;
+        }
+
         function runCode() {
-            alert('Running the code in an isolated environment...');
+            const code = document.getElementById('codeEditor').innerText;
+            document.getElementById('output').innerText = `Running code: \n${code}`;
         }
+
         function clearCode() {
-            document.querySelector('.code-editor').innerHTML = '<pre>// Write your code here...</pre>';
+            document.getElementById('codeEditor').innerText = '// Write your code here...';
+            document.getElementById('output').innerText = '';
         }
+
         function submitCode() {
-            alert('Submitting code for grading in a secure container...');
+            const code = document.getElementById('codeEditor').innerText;
+            document.getElementById('output').innerText = `Code submitted: \n${code}`;
+            // Here you can add logic to evaluate the code submission
+        }
+
+        function saveProgress() {
+            const code = document.getElementById('codeEditor').innerText;
+            // Logic to save the progress (could be an API call)
+            alert('Progress saved!');
+        }
+
+        function showHint() {
+            // Logic to show hints for the current exercise
+            alert('Here is a hint!');
+        }
+
+        function tryAgain() {
+            clearCode();
+        }
+
+        function returnToDashboard() {
+            document.getElementById('codingEnvironment').classList.add('hidden');
+            document.getElementById('dashboardScreen').classList.remove('hidden');
         }
     </script>
 </body>
